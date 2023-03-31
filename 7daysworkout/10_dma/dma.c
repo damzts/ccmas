@@ -2,9 +2,7 @@
 #include <stdlib.h> // aqui estan las funciones de dma
 
 /*
-la memoria dinamica se gestiona manualmente
-alojar,liberar
-
+    la memoria dinamica se gestiona manualmente | alojar,liberar
 */
 int main(int argc, char const *argv[])
 {
@@ -15,7 +13,7 @@ int main(int argc, char const *argv[])
     // ej int = 4bytes
     float *valores = (float *)malloc(longitud * sizeof(float));
     // la funcion malloc se debe castear como float puntero, ya que regresa un puntero
-    // si la funcion malloc devuelve un null
+    // si la funcion malloc devuelve un null, algo salio mal
     if (valores == NULL)
     {
         printf("no tienes tanta memoria\n");
@@ -24,7 +22,7 @@ int main(int argc, char const *argv[])
     //
     for (int i = 0; i < longitud; i++)
     {
-        valores[i] = 5.5;
+        valores[i] = 1.0 + (1.1*i);
         printf("%.2f,",valores[i]);
     }
     printf("\ntodo esta correcto!.\n");
