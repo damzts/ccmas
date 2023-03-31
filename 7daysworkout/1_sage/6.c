@@ -1,7 +1,7 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:   Study memory management concepts, such as stack and heap memory, malloc(), free(), and new/delete operators
  */
 #include <stdio.h>
 #include <stdlib.h>

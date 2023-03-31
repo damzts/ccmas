@@ -13,11 +13,10 @@ void loopy();
 int main(int argc, char const *argv[])
 {
     loopy();
-    system("PAUSE");
     return 0;
 }
 
 void loopy()
 {
-    printf("actually works\n");
+    printf("Text Here\n");
 }

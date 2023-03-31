@@ -1,7 +1,7 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:   Refresh your knowledge of pointers, including pointer arithmetic and pointers to functions
  */
 #include <stdio.h>
 #include <stdlib.h>
