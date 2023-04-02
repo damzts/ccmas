@@ -1,0 +1,53 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/plugged')
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'scheakur/vim-scheakur'
+Plugin 'nikolvs/vim-sunbather'
+Plugin 'joshdick/onedark.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'preservim/nerdtree'
+Plugin 'Yggdroot/indentLine'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'c.vim'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" Put your non-Plugin stuff after this line
+set nu
+syntax on
+" How many columns of whitespace a \t is worth
+set tabstop=4 
+" How many columns of whitespace a level of indentation" is worth
+set shiftwidth=4 
+" Use spaces when tabbing
+set expandtab
+set incsearch  " Enable incremental search
+set hlsearch   " Enable highlight search
+set termwinsize=12x0   " Set terminal size
+" set splitbelow         " Always split below
+set mouse=a            " Enable mouse drag on window splits
+set background=dark
+colorscheme scheakur
+set  list lcs=tab:\|\ 
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+
+let NERDTreeShowBookmarks = 1   " Show the bookmarks table
+let NERDTreeShowHidden = 1      " Show hidden files
+let NERDTreeShowLineNumbers = 0 " Hide line numbers
+let NERDTreeMinimalMenu = 1     " Use the minimal menu (m)
+let NERDTreeWinSize = 31        " Set panel width to 31 columns
+nmap    <F2>    :NERDTreeToggle<CR>
+imap <silent> <C-l> <Plug>(YCMToggleSignatureHelp)
+let g:AutoPairsShortcutToggle = '<C-P>'
+let g:ycm_enable_semantic_highlighting=1
