@@ -19,6 +19,7 @@
 #include <stdio.h>
 void swap(int,int);
 void swapP(int*,int*);
+void swapNoTemp(int*,int*);
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  main
@@ -33,6 +34,8 @@ main ( int argc, char *argv[] )
    swap(x,y);
    swapP(&x,&y);
    printf ( "x:%d, y:%d\n",x,y);
+   swapNoTemp(&x,&y);
+   printf ( "x:%d,y:%d\n",x,y); 
    return EXIT_SUCCESS;
 }				/* ----------  end of function main  ---------- */
 
@@ -68,6 +71,19 @@ swapP (int* x,int* y){
 }		/* -----  end of function swapP  ----- */
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  swapNoTemp
+ *  Description:  simple idea behind this code is to use arithmetic operators. We will take the sum of the two numbers and store it in one number and store the difference of both the numbers in the other number. Finally, we will store the difference of both the numbers in the first number. Since the values will be updated after the first two operations we will be able to swap the numbers.
+ *======================================================================================
+ */
+    void
+swapNoTemp (int *x, int *y )
+{
+    *x = *x + *y;
+    *y = *x - *y;
+    *x = *x - *y;
+}		/* -----  end of function swapNoTemp  ----- */
 
 
 
