@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  3_primenumbers.c
+ *       Filename:  06_allfactorsnaturalnumber.c
  *
- *    Description: calcula los numeros primos desde el 1 al N  
+ *    Description:  
  *
  *        Version:  1.0
- *        Created:  04/01/2023 08:05:00 PM
+ *        Created:  04/02/2023 07:32:52 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -15,11 +15,12 @@
  *
  * =====================================================================================
  */
+
 #include	<stdlib.h>
 #include    <stdio.h>
-#include <stdbool.h>
-bool isPrime(int);
-bool isPrimeEfficient(int);
+#include <math.h>
+void printAllFactors(int);
+void printDivisors(int);
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  main
@@ -29,61 +30,42 @@ bool isPrimeEfficient(int);
     int
 main ( int argc, char *argv[] )
 {
-    int N = 50;
-
-    for ( int i = 0; i < N; i += 1 ) {
-        if(isPrime(i)){
-            printf ( "%d,",i);
-        }
-    }
-    printf ( "\nSegunda Funcion\n" );
-    for ( int i = 0; i < N; i += 1 ) {
-        if(isPrimeEfficient(i)){
-            printf ( "%d,",i);
-        }
-    }
-
-
-
+    printAllFactors(100);
+    printDivisors(100);
     return EXIT_SUCCESS;
-}				/* ----------  end of function main  ---------- */
+}
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  isPrime
+ *         Name:  printAllFactors
  *  Description:  
  * =====================================================================================
  */
-   bool 
-isPrime (int n)
+    void
+printAllFactors ( int n)
 {
-     if (n == 1 || n == 0)
-                 return false;
     
-    for (int i=2;i<n;i+=1) {
-       
-        if (n%i==0){
-            return false;
+    for ( int i = 1; i <= n; i += 1 ) {
+        if(n%i ==0){
+            printf ( "%d es un numero divisible de %d\n",i,n);
         }
     }
-    return true;
-}		/* -----  end of function isPrime  ----- */
+}
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  isPrimeEfficient
+ *         Name:  printAllFactors-tune
  *  Description:  
  * =====================================================================================
  */
-    bool
-isPrimeEfficient (int n)
+void printDivisors(int n)
 {
-
-     if (n == 1 || n == 0)
-                 return false;
-    
-    for ( int i=2;i*i<=n ;i++ ) {
-        if(n%i == 0){
-            return false;
+    for (int i = 1; i <= sqrt(n); i++)
+    {
+        if (n % i == 0)
+        {
+            if (n / i == i)
+                printf("%d ", i);
+            else
+                printf("%d %d ", i, n / i);
         }
     }
-    return true;
-}		/* -----  end of function isPrimeEfficient  ----- */
+}

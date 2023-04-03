@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  fibonaciseries.c
+ *       Filename:  06_largestoftreenumbers.c
  *
- *    Description: printing fibonaci series 
+ *    Description:  
  *
  *        Version:  1.0
- *        Created:  04/01/2023 01:25:47 PM
+ *        Created:  04/02/2023 07:11:14 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -15,68 +15,56 @@
  *
  * =====================================================================================
  */
-#include <stdio.h>
-#include	<stdlib.h>
 
-void fibo(int);
-void fiboArray(int);
+#include	<stdlib.h>
+#include    <stdio.h>
+int largestOfTree(int a,int b,int c);
+int largestOfTree2(int a,int b,int c);
+
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  main
  *  Description:  
  * =====================================================================================
  */
-int main ( int argc, char *argv[] )
-{
-    fibo(50);
-    printf ( "saltodeliner\n" );
-    fiboArray(50);
-
+    int
+main ( int argc, char *argv[] )
+{   
+    int a=5,b=1,c=10;
+    printf ( "%d: is the largest number of %d:%d:%d\n",largestOfTree2(a,b,c),a,b,c);
     return EXIT_SUCCESS;
-}				/* ----------  end of function main  ---------- */
-
+}
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  fibo
+ *         Name:  largestOfTree
  *  Description:  
  * =====================================================================================
  */
-    void
-fibo (int n )
+    int
+largestOfTree (int a, int b, int c )
 {
-    int a=0,b=1,temp;
-    printf ( "%d,%d,",a,b);
-    for ( int i = 0; i < n; i += 1 ) { 
-         printf ( "%d,",a+b);
-            
-            temp=a; a=b;         
-            b=temp+b;
-
-    };
-}		/* -----  end of function fibo  ----- */
-
+    return a>b?(a>c?a:c):(b>c?b:c);
+}
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  fiboArray
+ *         Name:  largestOfTree2
  *  Description:  
  * =====================================================================================
  */
-    void
-fiboArray (int n)
+    int
+largestOfTree2 (int a,int b,int c)
 {
-    int array[n];    
-    array[0]=0;
-    array[1]=1;
-
-    printf ( "%d,%d,",array[0],array[1]);
-    for (int i = 2; i < n; i += 1 ) {
-        array[i]=array[i-1]+array[i-2];
-        printf ( "%d,",array[i]);
+    if(a>b){
+        if(a>c){
+            return a;
+        }else{
+            return c;
+        }
+    }else{
+        if(b>c){
+            return b;
+        }else{
+            return c;
+        }
     }
-}		/* -----  end of function fiboArray  ----- */
-
-
-
-
-
-
+}
