@@ -72,6 +72,7 @@ FactoresPrimos_t *getPrimeFactors(int a)
             }
         }
     }
+
     // printf("entre a get prime factors\n");
     FactoresPrimos *f = (FactoresPrimos *)malloc(sizeof(FactoresPrimos));
     f->len = counter;
