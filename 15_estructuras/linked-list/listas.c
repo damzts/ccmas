@@ -3,13 +3,6 @@
 #include <string.h>
 #include "lista.h"
 
-/*
-un .h es una version minificada del .c que solo tiene contiene definiciones de estructuras y prototipos de funcion.
-
-un prototipo es:
-
-*/
-
 Nodo* CrearNodo(Libro* libro){
 	Nodo* nodo = (Nodo*) malloc(sizeof(Nodo));
 	strncpy(nodo->libro.titulo,libro->titulo,50);
