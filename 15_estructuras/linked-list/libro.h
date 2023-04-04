@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-typedef struct Libro{
+typedef struct Libro_t{
 	char titulo[50];
 	char autor [50];
 	char isbn[13];

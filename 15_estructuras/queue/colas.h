@@ -1,6 +1,6 @@
 /* un header solo debe llevar declaraciones de estructuras y prototipos de funciones*/
-#ifndef COLAS
-#define COLAS
+#ifndef colas_h
+#define colas_h
 // === structs =========================
 #include "pedidos.h"
 //
@@ -25,4 +25,4 @@ void Encolar(Cola *cola, Pedido *pedido);
 Pedido *Consultar(Cola *cola);
 void ImprimeCola(Cola *cola);
 
-#endif // !COLAS
+#endif // !colas_h
