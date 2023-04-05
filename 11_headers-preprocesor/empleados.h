@@ -22,5 +22,3 @@ typedef struct empleado_t
 void print_empleado(Empleado *empl);
 
 #endif // EMPLEADOS
-
-

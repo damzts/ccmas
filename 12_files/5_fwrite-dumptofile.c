@@ -1,16 +1,15 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:   En este vídeo vamos a ver cómo podemos usar la primitiva fwrite para transferir regiones de memoria a streams o archivos.
+ para permitir serializar de forma pura estructuras o arrays complejos de una manera mucho más precisa que trabajando con cadenas de caracteres.
  */
 #include <stdio.h>
 #include <stdlib.h>
-/*
- *Prototypes
- */
+//
 void loopy();
 void printMedicion(struct medicion *medicion);
-
+//
 struct medicion
 {
     unsigned short anio;
@@ -20,11 +19,7 @@ struct medicion
     unsigned char uv;
     unsigned char viento;
 };
-
-void printMedicion(struct medicion *medicion)
-{
-    printf("Fecha: %d-%d-%d, Registro %fC. UV %d, Viento %d, km/h\n", medicion->dia, medicion->mes, medicion->anio, medicion->temperatura, medicion->uv, medicion->viento);
-}
+//
 
 int main(int argc, char const *argv[])
 {
@@ -32,7 +27,7 @@ int main(int argc, char const *argv[])
     system("PAUSE");
     return 0;
 }
-
+//
 void loopy()
 {
     struct medicion m1 = {
@@ -53,5 +48,13 @@ void loopy()
         return;
     }
 
+    printMedicion(&m1);
+    printf("successfully wrote, temperature.bin created.\n");
+
     fclose(fp);
+}
+//
+void printMedicion(struct medicion *medicion)
+{
+    printf("Fecha: %d-%d-%d, Registro %fC. UV %d, Viento %d, km/h\n", medicion->dia, medicion->mes, medicion->anio, medicion->temperatura, medicion->uv, medicion->viento);
 }

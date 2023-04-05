@@ -1,7 +1,8 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description: Use a (dynamically allocated) array of pointers to (dynamically allocated) arrays. This is used mostly when the array bounds are not known until runtime.
+ *Description: To fill a matrix using pointers: Use a (dynamically allocated) array of pointers to (dynamically allocated) arrays.
+ *This is used mostly when the array bounds are not known until runtime.
  *https://stackoverflow.com/questions/3911400/how-to-pass-2d-array-matrix-in-a-function-in-c
  */
 #include <stdio.h>
@@ -11,32 +12,38 @@
  *Prototypes
  */
 void func(int **array, int rows, int cols);
-/*
-    0x5100 |'B'|  "name" is an address constant that has value hex 5100
-    0x5101 |'i'|  char: 1 byte
-    0x5102 |'l'|  char: 1 byte
-    0x5103 |'l'|  char: 1 byte
-    0x5104 |'s'|  char: 1 byte
-    0x5105 |\0 |  char: 1 byte
-    0x5106 |   |  p is a pointer: 1 word
-    0x5109 |   |  q is a pointer: 1 word
-*/
+
 int main()
 {
     int rows, cols, i;
-    int **x;
+    int **x; // double pointer
     srand(time(NULL));
     /* obtain values for rows & cols */
     rows = 10;
     cols = 6;
-    /* allocate the array */
+    /* allocate the array, length is rows, size is another pointer */
     x = (int **)malloc(rows * sizeof *x);
+    /* for every row, which is a pointer also, allocate another array, length is cols, size is int*/
     for (i = 0; i < rows; i++)
     {
         x[i] = (int *)malloc(cols * sizeof *x[i]);
     }
 
-    /* use the array */
+    /* so you end up with:
+        **x = malloc(rows * sizeof *x);
+        0x5100 |'*x'|  ptr-> malloc(cols * sizeof *x[i]);   | int | int | int | int | int | int |
+        0x5101 |'*x'|  ptr-> ...                            | int | int | int | int | int | int |
+        0x5102 |'*x'|  ptr-> ...                            | int | int | int | int | int | int |
+        0x5103 |'*x'|  ptr-> ...                            | int | int | int | int | int | int |
+        0x5104 |'*x'|  ptr-> ...                            | int | int | int | int | int | int |
+        0x5105 | \0 |  ptr-> ...                            | int | int | int | int | int | int |
+        len = rows                                          len = cols
+        size = ptr                                          size = *x[i] = *(*x) = pointer x dereferenced = int
+
+        final result = x[rows][cols]
+    */
+
+     /* use the array */
     func(x, rows, cols);
 
     /* deallocate the array */

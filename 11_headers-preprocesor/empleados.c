@@ -1,10 +1,10 @@
 /*
-
+    for every header, you write a headername.c which includes all the function implementation.
 */
-#include "empleados.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "empleados.h"
 
 void print_empleado(Empleado *empl)
 {

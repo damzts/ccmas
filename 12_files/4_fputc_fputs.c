@@ -1,19 +1,16 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:   Con las primitivas fputc y fputs podemos escribir cadenas de caracteres o caracteres sueltos en archivos.
  */
 #include <stdio.h>
 #include <stdlib.h>
-/*
- *Prototypes
- */
+//
 void loopy();
-
+//
 int main(int argc, char const *argv[])
 {
     loopy();
-    system("PAUSE");
     return 0;
 }
 
@@ -28,7 +25,7 @@ void loopy()
         return;
     }
 
-    fputc('h',temp); // if ok returns the char that writed, if not return eof
-    fputs("hola wenos dias",temp);
+    fputc('h', temp); // if ok returns the char that wrote, if not return eof
+    fputs("hola wenos dias", temp);
     fclose(temp); // cierra el archivo cuando lo uses
 }

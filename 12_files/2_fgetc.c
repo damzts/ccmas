@@ -1,19 +1,16 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:   Con la primitiva fgetc podemos leer caracteres de un archivo.
  */
 #include <stdio.h>
 #include <stdlib.h>
-/*
- *Prototypes
- */
+//
 void loopy();
-
+//
 int main(int argc, char const *argv[])
 {
     loopy();
-    system("PAUSE");
     return 0;
 }
 
@@ -31,10 +28,9 @@ void loopy()
     do
     {
         int leido = fgetc(temperatures); // fgetc deuvelve un int, envez de un char, para discriminar si es un caracter o no
-        // EOF, end of file, error
         printf("%c", leido);
-    } while (!feof(temperatures));
-    // feof() // acepta descriptor, devuelve no 0 sie el cursor esta al final del archivo
+    } while (!feof(temperatures)); // while not end of file
+    // feof() recibe un descriptor, devuelve no 0 si el cursor esta al final del archivo
 
     fclose(temperatures); // cierra el archivo cuando lo uses
 }

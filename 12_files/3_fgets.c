@@ -1,19 +1,17 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:  Con la primitiva fgets podemos leer del tirón un montón de caracteres y depositarlos en un buffer.
+ que luego podemos tratar como una cadena de caracteres.
  */
 #include <stdio.h>
 #include <stdlib.h>
-/*
- *Prototypes
- */
+//
 void loopy();
-
+//
 int main(int argc, char const *argv[])
 {
     loopy();
-    system("PAUSE");
     return 0;
 }
 
@@ -30,7 +28,8 @@ void loopy()
 
     char buffer[80]; // buffer overflow
 
-    // char *ref = fgets(buffer,80,temperatures); // si sale bien devuelve una referencia, al mismo buffer, sino devuleve null
+    // si fgets sale bien-> devuelve una referencia al mismo buffer, sino devuelve null
+    // char *referencia = fgets(buffer,80,temperatures);
 
     do
     {
@@ -38,7 +37,7 @@ void loopy()
         {
             printf("%s", buffer); // fgets se detiene en saltos de linea \n
         }
-    } while (!feof(temperatures));
+    } while (!feof(temperatures)); // while not end of file
 
     fclose(temperatures); // cierra el archivo cuando lo uses
 }

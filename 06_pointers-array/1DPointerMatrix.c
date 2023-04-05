@@ -1,7 +1,7 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description: Use a 1-dimensional array and fixup the indices. This can be used with both statically allocated (fixed-size) and dynamically allocated arrays.
+ *Description: To fill a matrix using pointers: Use a 1-dimensional array and fixup the indices.This can be used with both statically allocated (fixed-size) and dynamically allocated arrays.
  *https://stackoverflow.com/questions/3911400/how-to-pass-2d-array-matrix-in-a-function-in-c
  */
 #include <stdio.h>
@@ -30,7 +30,7 @@ int main()
     rows = 10;
     cols = 6;
     /* allocate the array */
-    x = (int*)malloc(rows * cols * sizeof *x);
+    x = (int *)malloc(rows * cols * sizeof *x); // un array 1D, donde cabe tanto renglones y columnas
     /* use the array */
     func(x, rows, cols);
     /* deallocate the array */
@@ -41,13 +41,21 @@ void func(int *array, int rows, int cols)
 {
     int i, j;
 
+    // renglones
     for (i = 0; i < rows; i++)
     {
+        // columnas
         for (j = 0; j < cols; j++)
         {
+            // j llena las columnas
+            // el iterador i, salta a lo largo del array1D cambiando de renglon.
             array[i * cols + j] = rand() % 11;
             printf("%2d|", array[i * cols + j]);
         }
         printf("\n");
     }
 }
+
+/*
+
+*/

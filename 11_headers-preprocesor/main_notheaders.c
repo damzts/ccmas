@@ -1,7 +1,9 @@
 /*
  *Author: Damzts
  *Date: 3-30-2023
- *Description:   Review C / C++ syntax and basic data types, such as int, float, char, bool, and void
+ *Description:  How headers and preprocessor works? this is the full code that contains structs, typedefs and function prototypes.
+                But when you are really building a system, you just cant mix everything into a single .c file.
+                you must use headers, with the #include directive. take a look of the code and go back to main.c
  */
 #include <stdio.h>
 #include <stdlib.h>
