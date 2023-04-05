@@ -5,6 +5,8 @@
         "string.h": "c",
         "corecrt.h": "c",
         "stdlib.h": "c",
-        "empleados.h": "c"
+        "empleados.h": "c",
+        "tuple": "c",
+        "utility": "c"
     }
 }
