@@ -1,0 +1,12 @@
+Palindromic substrings in this text:
+- racecar
+- amanaplanacanalpanama
+- adarada
+- aca
+- eve
+- mom
+- dad
+- asvegaglivelgae
+- tisattisinimetalumme
+- eme 
+- alula
